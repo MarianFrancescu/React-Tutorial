@@ -11,7 +11,7 @@ function Aside() {
             </section>
             <section>
                 <h4>Recipes</h4>
-                <p>Lorem</p>
+                <a href="home">Lorem</a>
             </section>
         </aside>
     )

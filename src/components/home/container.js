@@ -1,6 +1,6 @@
 import React from "react";
 import Main from "./main";
-import Aside from "./aside";
+import Aside from "./../wrapper/aside";
 
 function Container() {
     return(
