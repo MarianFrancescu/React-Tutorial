@@ -1,16 +1,24 @@
 {
-    "customers": [
-        {
-            "username": "John",
-            "password": "Password1"
-        },
-        {
-            "username": "Snow",
-            "password": "Password1"
-        },
-        {
-            "username": "Helen",
-            "password": "Password1"
-        }
-    ]
+  "customers": [
+    {
+      "id": "1",
+      "username": "John",
+      "password": "Password1"
+    },
+    {
+      "id": "2",
+      "username": "Snow",
+      "password": "Password1"
+    },
+    {
+      "id": "3",
+      "username": "Helen",
+      "password": "Password1"
+    },
+    {
+      "username": "John",
+      "password": "Password1",
+      "id": "OhFvcVY"
+    }
+  ]
 }

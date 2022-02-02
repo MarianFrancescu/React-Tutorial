@@ -4,7 +4,7 @@ import Aside from "./../wrapper/aside";
 
 function Container() {
     return(
-        <div>
+        <div id="container">
             <Main />
             <Aside />
         </div>
