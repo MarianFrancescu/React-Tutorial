@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class Main extends Component{
     constructor(props){
@@ -14,18 +15,18 @@ class Main extends Component{
     handleSubmit(event){
         event.preventDefault();
 
-        fetch("http://localhost:3030/customers", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
+        fetch(`http://localhost:3030/customers?username=${encodeURIComponent(this.state.username)}`, {
+            method: 'GET',
         })
-        .then(dat => console.log("Post successfull ", dat))
+        .then(dat => dat.json())
+        .then(data => {
+            if(data[0].password === this.state.password){
+                localStorage.setItem("validUser", data[0].username);
+                this.props.history.push('/home');
+            } else {
+                console.log("Invalid login");
+            }
+        })
         .catch(err => console.log("Error post ", err.message));
     }
 
@@ -39,7 +40,7 @@ class Main extends Component{
     render(){
         return(
             <main>
-                <h2>Register</h2>
+                <h2>Login</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>
@@ -62,4 +63,4 @@ class Main extends Component{
     }
 }
 
-export default Main;
+export default withRouter(Main);

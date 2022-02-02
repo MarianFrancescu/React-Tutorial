@@ -1,20 +1,38 @@
-import React from "react";
+import React, {Component} from "react";
+import { Link } from "react-router-dom";
 
-function Header() {
-    return(
-        <header>
-            <h1><a href="index.html"> Skillsoft weights </a></h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="enterWeight.html">Enter weight</a></li>
-                    <li><a href="myWeights.html">My weight</a></li>
-                    <li><a href="teamWeights.html">Team weights</a></li>
-                </ul>
-            </nav>
-        </header>
-    )
-    
+class Header extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            validUser: localStorage.getItem('validUser')
+        }
+    }
+
+    render(){
+        return(
+            <header>
+                <h1><Link to='/'>Skillsoft weights</Link></h1>
+                <nav>
+                    <ul>
+                        <li><Link to='/home'>Home</Link></li>
+                        {
+                            !this.state.validUser ?
+                                <li><Link to='/register'>Register</Link></li>
+                                : null
+                        }
+                        
+                        <li><Link to='/customers'>Customers</Link></li>
+                        {
+                            !this.state.validUser ?
+                                <li><Link to='/login'>Login</Link></li>
+                                : <li><Link to='/logout'>Logout {this.state.validUser}</Link></li>
+                        }
+                    </ul>
+                </nav>
+            </header>
+        )
+    }   
 }
 
 export default Header;
