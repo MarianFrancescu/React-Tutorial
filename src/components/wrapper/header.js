@@ -23,6 +23,8 @@ class Header extends Component{
                         }
                         
                         <li><Link to='/customers'>Customers</Link></li>
+                        <li><Link to='/teamweights'>TeamWeights</Link></li>
+
                         {
                             !this.state.validUser ?
                                 <li><Link to='/login'>Login</Link></li>

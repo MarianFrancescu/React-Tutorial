@@ -15,8 +15,8 @@ class Main extends Component{
                 {
                     this.state.allCustomers.map( (customer, it) => (
                         <div key={it}>
-                            {customer.username}&nbsp;
-                            {customer.password}
+                            {customer.empName}&nbsp;
+                            {customer.empPass}
                         </div>
                     ))
                 }
@@ -25,7 +25,7 @@ class Main extends Component{
     }
 
     componentDidMount(){
-        fetch("http://localhost:3030/customers")
+        fetch("http://localhost:8080/getEmployees")
             .then(data => {
                 return data.json();
             })

@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Customers from './components/customers/customers';
 import Register from './components/register/register';
 import Login from './components/login/login';
+import TeamWeights from './components/teamweights/teamweights';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/customers' component={Customers} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
+        <Route path='/teamweights' component={TeamWeights} />
       </BrowserRouter>
     </div>
   );
