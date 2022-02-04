@@ -9,6 +9,7 @@ class Main extends Component{
     }
 
     render(){
+      if(this.state.allCustomers > 0){
         return(
             <main>
                 <h2>Customers</h2>
@@ -22,6 +23,14 @@ class Main extends Component{
                 }
             </main>
         )
+      } else {
+        return (
+          <main>
+            <h2>Customers</h2>
+            <div>Not authorized</div>
+          </main>
+        )
+      }
     }
 
     componentDidMount(){

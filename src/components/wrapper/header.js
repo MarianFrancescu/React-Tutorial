@@ -5,7 +5,7 @@ class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            validUser: localStorage.getItem('validUser')
+            token: localStorage.getItem('token')
         }
     }
 
@@ -17,24 +17,25 @@ class Header extends Component{
                     <ul>
                         <li><Link to='/home'>Home</Link></li>
                         {
-                            !this.state.validUser ?
+                            !this.state.token ?
                                 <li><Link to='/register'>Register</Link></li>
                                 : null
                         }
-                        
+                        <li><Link to='/enterweight'>Enter weight</Link></li>
+                        <li><Link to='/myweight'>My weight</Link></li>
                         <li><Link to='/customers'>Customers</Link></li>
                         <li><Link to='/teamweights'>TeamWeights</Link></li>
 
                         {
-                            !this.state.validUser ?
+                            !this.state.token ?
                                 <li><Link to='/login'>Login</Link></li>
-                                : <li><Link to='/logout'>Logout {this.state.validUser}</Link></li>
+                                : <li><Link to='/logout'>Logout {this.state.empName}</Link></li>
                         }
                     </ul>
                 </nav>
             </header>
         )
-    }   
+    }
 }
 
 export default Header;

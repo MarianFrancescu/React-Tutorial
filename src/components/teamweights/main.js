@@ -22,13 +22,14 @@ class Main extends Component {
     }
 
     render(){
+      if(this.state.allWeights > 0){
         return(
             <main>
                 {
                     this.state.allWeights.map((emp, i) => (
                         <div key={i}>
                             {emp.empName}
-                            {emp.empWeights.map((weights ,j) => 
+                            {emp.empWeights.map((weights ,j) =>
                                 {
                                     return <div key={j}>
                                         Date: { new Date(weights?.date).toLocaleDateString()}
@@ -42,8 +43,16 @@ class Main extends Component {
                 }
             </main>
         )
+    } else {
+      return (
+        <main>
+          <h2>TeamWeights</h2>
+          <div>Not authorized</div>
+        </main>
+      )
     }
-    
+  }
+
 }
 
 export default Main;
